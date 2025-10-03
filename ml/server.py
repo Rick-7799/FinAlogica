@@ -1,5 +1,5 @@
 
-# ml/server.py
+
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import uvicorn
@@ -17,11 +17,11 @@ model = mobilenet_v3_small(weights=weights)
 model.eval()
 preprocess = weights.transforms()
 
-# Build a trivial projection: map ImageNet labels to fish categories
+
 idx_to_label = weights.meta["categories"]
 cat_to_idx = {c: i for i, c in enumerate(idx_to_label)}
 
-# Create a candidate mapping: for each fish_key map to candidate ImageNet classes
+
 fish_to_indices = {}
 for fish_key, names in FISH_MAP.items():
     inds = [cat_to_idx[n] for n in names if n in cat_to_idx]
@@ -32,13 +32,13 @@ for fish_key, names in FISH_MAP.items():
 async def predict(file: UploadFile = File(...)):
     raw = await file.read()
     img = Image.open(io.BytesIO(raw)).convert("RGB")
-    x = preprocess(img).unsqueeze(0)  # [1,3,224,224]
+    x = preprocess(img).unsqueeze(0)  
 
     with torch.no_grad():
         logits = model(x)
-        probs = torch.softmax(logits, dim=1).squeeze(0)  # [1000]
+        probs = torch.softmax(logits, dim=1).squeeze(0)  
 
-    # Score each fish group by summing candidate probs
+  
     scored = []
     for fish_key, inds in fish_to_indices.items():
         score = float(probs[inds].sum().item())
