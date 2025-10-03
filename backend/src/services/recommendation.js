@@ -1,5 +1,5 @@
 
-// backend/src/services/recommendation.js
+
 import axios from "axios";
 
 function scoreByWeather({ tempC, windKph, hour }) {
@@ -23,7 +23,7 @@ export async function getRecommendation({ lat, lon, species }) {
       const windKph = (data?.current?.wind_speed_10m ?? 2.5) * 3.6; // m/s → km/h
       weather = { tempC, windKph, hour: new Date().getHours(), source: "open-meteo" };
     } catch (e) {
-      // fallback stays
+      
     }
   }
 
