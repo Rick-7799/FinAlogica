@@ -1,4 +1,3 @@
-// backend/src/routes/predict.js
 import { Router } from "express";
 import multer from "multer";
 import axios from "axios";
