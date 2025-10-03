@@ -1,4 +1,4 @@
-# streamlit_app/app.py
+
 import os, requests
 from dotenv import load_dotenv
 import streamlit as st
@@ -9,7 +9,7 @@ API = os.getenv("API_URL", "http://localhost:4000/api")
 st.set_page_config(page_title="FinAlogica (Local)", layout="centered")
 st.title("🐟 FinAlogica — Local Host (Streamlit)")
 
-# --------- STATE ---------
+
 if "pred" not in st.session_state:
     st.session_state.pred = None
 if "top_species" not in st.session_state:
@@ -21,7 +21,7 @@ if "lat" not in st.session_state:
 if "lon" not in st.session_state:
     st.session_state.lon = 77.41
 
-# --------- UPLOAD + PREDICT ---------
+
 img = st.file_uploader("Upload a fish image", type=["jpg","jpeg","png"], key="uploader")
 
 if st.button("Predict", key="btn_predict"):
@@ -40,13 +40,13 @@ if st.button("Predict", key="btn_predict"):
         else:
             st.error("Prediction service error")
 
-# Show prediction if we have it (persists across reruns)
+
 if st.session_state.pred:
     st.subheader("Prediction")
     st.json(st.session_state.pred)
     st.write(f"Top species: **{st.session_state.top_species}**")
 
-    # --------- RECOMMENDATIONS (use a form so a single submit reruns predictably) ---------
+  
     with st.form("rec_form"):
         c1, c2 = st.columns(2)
         with c1:
@@ -69,7 +69,7 @@ if st.session_state.pred:
             else:
                 st.error("Recommendation service error")
 
-# Show last recommendations (persist)
+
 if st.session_state.rec:
     st.subheader("Recommendations")
     st.json(st.session_state.rec)
