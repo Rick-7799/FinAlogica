@@ -1,5 +1,5 @@
 
--- db/schema.sql
+
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS species (
   id SERIAL PRIMARY KEY,
   common_name TEXT NOT NULL,
   scientific_name TEXT,
-  label_key TEXT UNIQUE,            -- mapping to ML label if needed
+  label_key TEXT UNIQUE,            
   notes TEXT
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS catches (
 
 CREATE TABLE IF NOT EXISTS rec_cache (
   id SERIAL PRIMARY KEY,
-  key TEXT UNIQUE,             -- hash of lat,lon,date or similar
+  key TEXT UNIQUE,
   payload JSONB,
   created_at TIMESTAMP DEFAULT NOW()
 );
