@@ -1,5 +1,4 @@
 
-// backend/src/routes/index.js
 import { Router } from "express";
 import species from "./species.js";
 import predict from "./predict.js";
