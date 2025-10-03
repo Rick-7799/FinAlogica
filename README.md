@@ -12,7 +12,6 @@
 - `/streamlit_app` — A Streamlit app that "hosts" the experience locally: upload an image → get species + recommendations.
 - `/db`       — Postgres schema + seed data.
 
-###Quick path
 # 1) Start the ML engine
 ```bash
 cd ml
