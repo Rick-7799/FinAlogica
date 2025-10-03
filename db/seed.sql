@@ -1,5 +1,3 @@
-
--- db/seed.sql
 INSERT INTO users (email, name) VALUES
 ('demo@finalogica.local', 'Demo User')
 ON CONFLICT (email) DO NOTHING;
