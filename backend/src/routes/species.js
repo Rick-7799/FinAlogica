@@ -1,5 +1,4 @@
 
-// backend/src/routes/species.js
 import { Router } from "express";
 import { query } from "../services/db.js";
 
