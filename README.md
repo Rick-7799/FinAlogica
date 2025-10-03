@@ -12,28 +12,32 @@
 - `/streamlit_app` — A Streamlit app that "hosts" the experience locally: upload an image → get species + recommendations.
 - `/db`       — Postgres schema + seed data.
 
-##Quick path
-```bash
+###Quick path
 # 1) Start the ML engine
+```bash
 cd ml
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 python server.py
+```
 
 # 2) Start the backend API
+```bash
 cd backend
 npm install
 npm run dev
-
+```
 # 3) Start the Streamlit app
+```bash
 cd streamlit_app
 python -m venv .venv 
 .venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
-
-# 5) Run the React app
+```
+# 4) Run the React app
+```bash
 cd frontend
 npm install
 npm run dev
