@@ -37,7 +37,7 @@ export default function App() {
     try {
       await predict(file).unwrap()
     } catch (e) {
-      // handled by RTK Query error state as well
+     
     }
   }
 
