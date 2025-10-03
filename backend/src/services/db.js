@@ -1,5 +1,5 @@
 
-// backend/src/services/db.js
+
 import dotenv from "dotenv";
 import pkg from "pg";
 dotenv.config();
