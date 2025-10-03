@@ -10,7 +10,7 @@ export const api = createApi({
     predict: builder.mutation({
       query: (file) => {
         const form = new FormData()
-        form.append('image', file) // <-- must be 'image' to match backend multer
+        form.append('image', file) 
         return { url: '/predict', method: 'POST', body: form }
       }
     }),
